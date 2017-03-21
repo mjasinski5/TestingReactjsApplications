@@ -1,0 +1,322 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Testing ReactJS Applications</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-image="lib/repeatable_pattern_background.jpg">
+          <section>
+            <img style="width:14%; border:none; background:transparent" src="lib/html5.png" />
+            <img style="width:10%; border:none; background:transparent" src="lib/css3.png" />
+            <img style="width:12%; border:none; background:transparent" src="lib/js-logo.png" />
+            <img style="width:15%; border:none; background:transparent" src="lib/reactjs.png" />
+            <br/><br/><br/>
+            <h2>Testing ReactJS Applications</h2>
+            <br/>
+            <p style="font-size:30px"><i><a>How to write testable and reliable code</a></i></p>
+          </section>
+
+          <section>
+            <img style="width:60%; border:none; background:transparent" src="lib/sap-hybris-logo.png" /><br/><br/>
+            <center>
+              <h3>Hack Your Career</h3><br/>
+              <img style="width:8%; border:none; background:transparent" src="lib/square-facebook-512.png" /> <a style="color:#3b5998">Hack.your.Career</a>
+            </center>
+          </section>
+          <section>
+            <h3>Initiatives</h3>
+            <ul>
+              <li> Mini Konferencje ( 6 kwiecień, rejestracja: <a href="http://hackingliwice.pl/">http://hackingliwice.pl</a>)</li>
+              <li> Staże</li>
+              <li> Praktyki wakacyjne, czerwiec 2017 ( CV: team-hack@sap.com )</li>
+
+            </ul>
+          </section>
+        </section>
+
+        <section data-background-image="lib/repeatable_pattern_background.jpg">
+          <section>
+            <h3> Agenda </h3>
+            <ul>
+              <li class="fragment fade-up"> Testing? Why do we even need this..</li>
+              <li class="fragment fade-up"> Types of tests</li>
+              <li class="fragment fade-up"> What can be tested? What should be tested?.. and how to avoid under? </li>
+              <li class="fragment fade-up"> Few words about testable code </li>
+              <li class="fragment fade-up"> Our testing stack - Tools </li>
+              <li class="fragment fade-up"> Live Demo - lets write some tests :) </li>
+              <li class="fragment fade-up"> What's next?</li>
+              <li class="fragment fade-up"> Q&A </li>
+            </ul>
+          </section>
+          <section>
+            <h3> Testing? Why did we even need this?</h3>
+          </section>
+          <section>
+            <h2> Układ kierowniczy </h2>
+            <img src="lib/img/uklad_kierowniczy.jpg"></img>
+          </section>
+          <section>
+            <h2> Rurka pitota </h2>
+            <img src="lib/img/rurka_pitota.jpg"></img>
+          </section>
+          <section>
+            <h2> What is the reality?
+          </section>
+          <section>
+            <img src="lib/img/testing1.png"></img>
+          </section>
+          <section>
+            <h2> Why developers don't like to write tests? </h2>
+            <ul class="unordered-list">
+              <li class="fragment"> A lot of code... </li>
+              <li class="fragment"> More time spent on doing tasks</li>
+              <li class="fragment"> They consider writting tests as sad obligation instead of an investment</li>
+              <li class="fragment"> "But it works... ". Define working!</li>
+            </ul>
+          </section>
+          <section>
+            <img src="lib/img/testing2.png"></img>
+          </section>
+          <section>
+            <h2>So why should we?</h2>
+            <ul class="unordered-list">
+              <li class="fragment"> Easy refactor and changes </li>
+              <li class="fragment"> Less bugs! </li>
+              <li class="fragment"> Confidence.. trust :) </li>
+              <li class="fragment"> Teaches "proper" way of thinking </li>
+              <li class="fragment"> Define working? No problem. Test coverage. </li>
+              <li class="fragment"> Be like a pro </li>
+            </ul>
+          </section>
+          <section>
+            <h2>HOW !?</h2>
+            You have to like writting tests as much as you like writting code...
+          </section>
+          <section>
+            <img src="lib/img/bugs.jpg"></img>
+          </section>
+          <section>
+            <h2> But dude, really - how  :) ? </h2>
+            Soon we will find out.
+          </section>
+      </section>
+
+      <section data-background-image="lib/repeatable_pattern_background.jpg">
+        <section>
+            <h2>Types of tests</h2>
+            <ul class="unordered-list">
+              <li> Unit</li>
+              <li> Integration</li>
+              <li> E2E</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2> Unit tests </h2>
+            <ul class="unordered-list">
+              <li> Fully automated</li>
+              <li> Deterministic </li>
+              <li> Independent from each other</li>
+              <li> Small, Fast, Readable, Maintainable </li>
+              <li> Trustworthy</li>
+              <li> Runs in isolation (dependencies are stubbed/mocked)</li>
+              <li> Example of tested elements: business logic </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Example</h2>
+            <img src="lib/img/ss1.png"></img>
+          </section>
+
+          <section>
+            <h2> Integration test</h2>
+            <ul class="unordered-list">
+              <li> Tests communication between components/interfaces</li>
+              <li> Its done on production environment </li>
+              <li> Within external dependies/resources (calls to DB, file access)</li>
+              <li> Small, Fast, Readable, Maintainable </li>
+              <li> Trustworthy</li>
+              <li> Smoke test is subset</li>
+              <li> Example of tested elements: communication with microservice (REST, HTTP)</li>
+            </ul>
+          </section>
+          <section>
+            Example
+            <img src="lib/img/ss2.png"> </img>
+          </section>
+          <section>
+            <h2>E2E</h2>
+            <img src="lib/img/e2e.png"> </img>
+          </section
+        </section>
+
+      </section>
+        <section data-background-image="lib/repeatable_pattern_background.jpg">
+          <section>
+            <h2>What can/should be tested?</h2>
+          </section>
+          <section>
+            <h2>A little bit of history... <h2>
+          </section>
+          <section>
+            <h2>Business logic layer</h2>
+          </section>
+          <section>
+            <h2>View layer (!)</h2>
+          </section>
+          <section><h2>Enzyme vs JEST</h2></section>
+          <section>
+            Enzyme
+            <img src="lib/img/view1.png"> </img>
+          </section>
+          <section>
+            JEST - genius snapshots
+            <img src="lib/img/view2.png"> </img>
+          </section>
+
+          <section>
+            <h2> Overtesting.. undertesting.. What is less sad?</h2>
+          </section>
+          <section>
+            <img src="lib/img/meme-test-all.jpg"></img>
+          </section>
+          <section>
+            <h3>Both cases cause: </h3>
+            <ul class="unordered-list">
+              <li> Less flexibility </li>
+              <li> Maintenance problem </li>
+              <li> Frustration :) </li>
+              <li> My measure of success? Confident refactor. </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Testable code</h2>
+            <ul class="unordered-list">
+              <li> Keep things small and simple</li>
+              <li> Separate business and view logic </li>
+              <li> Avoid side effects </li>
+              <li> My measure of success? Confident refactor. </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Keep things small and simple (SRP)</h2>
+          </section>
+          <section>
+            <h3>Bad</h3>
+            <img src="lib/img/addUserBad.png"> </img>
+          </section>
+          <section>
+            <h3>Good</h3>
+            <img src="lib/img/srpGood.png"> </img>
+          </section>
+          <section>
+            <h2> Separate business and view logic </h2>
+          </section>
+          <section>
+            <h3>Bad</h3>
+            <img src="lib/img/separate.png"> </img>
+          </section>
+          <section>
+            <h3>Good</h3>
+            <img src="lib/img/separateGood.png"> </img>
+          </section>
+          <section>
+            <h2> Avoid side effects</h2>
+          </section>
+          <section>
+            <h3>Bad</h3>
+            <img src="lib/img/avoidBad1.png"> </img>
+          </section>
+          <section>
+            <h3>Good</h3>
+            <img src="lib/img/avoidGood1.png"> </img>
+          </section>
+          <section>
+            <h2>My advice? Pure functions! </h2>
+          </section>
+        </section>
+
+        <section data-background-image="lib/repeatable_pattern_background.jpg">
+          <section>
+            <h2>Testing stack</h2>
+            <ul class="unordered-list">
+              <li> ReactJS</li>
+              <li> JEST </li>
+              <li> Enzyme </li>
+              <li> create-react-app</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Live Demo</h2>
+          </section>
+      <section>
+        <img src="lib/img/end.jpg"></img>
+      </section>
+      <section>
+        <h2>
+        What's next?
+      </h2>
+      </section>
+      <section>
+        <h2>TDD</h2>
+      </section>
+      <section>
+        <h2>Summary</h2>
+        <ul class="unordered-list">
+          <li> What have we learned today? </li>
+          <li> “You don't learn to walk by following rules. You learn by doing, and by falling over.” ― Richard Branson</li>
+          <li> Its just the beginning.. You choose which path you follow.</li>
+        </ul>
+      </section>
+      <section data-background-image="lib/repeatable_pattern_background.jpg">
+        <section>
+          <img src="lib/img/thank.jpg" />
+          <h2 class="fragment">Questions?</h2>
+        </section>
+      </section>
+      <section data-background-image="lib/repeatable_pattern_background.jpg">
+        <h2>Give us feedback!</h2>
+        <small><i>and win the contest!</i></small>
+      </section>
+    </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

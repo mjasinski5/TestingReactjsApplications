@@ -1,0 +1,34 @@
+exports[`test better life with snapshots -  1 :) 1`] = `
+<ul
+  className="menu">
+  <li>
+     First Category
+  </li>
+  <li>
+     Second Category 
+  </li>
+  <ul
+    className="additionalElement">
+    Third (
+    Mariusz
+    )
+    <button
+      className="logoutButton"
+      onClick={[Function]}>
+       Logout 
+    </button>
+  </ul>
+</ul>
+`;
+
+exports[`test better life with snapshots -  2 :) 1`] = `
+<ul
+  className="menu">
+  <li>
+     First Category
+  </li>
+  <li>
+     Second Category 
+  </li>
+</ul>
+`;
